@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>Joined Matches | RB ESPORTS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'baby-blue': '#e0f2fe',
+'sky-blue': '#38bdf8',
+'deep-blue': '#0369a1'
+},
+fontFamily: {
+'script': ['"Dancing Script"', 'cursive'],
+'body': ['"Poppins"', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+body{font-family:'Poppins',sans-serif}
+
+.glow-text{animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{
+from{text-shadow:0 0 10px #7dd3fc}
+to{text-shadow:0 0 25px #38bdf8}
+}
+
+.card{transition:.35s}
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 20px 35px -10px rgba(56,189,248,.35);
+}
+
+#topBtn{position:fixed;bottom:20px;right:20px}
+</style>
+</head>
+
+<body class="bg-baby-blue text-gray-700">
+
+<!-- NAV -->
+<nav class="bg-white/90 backdrop-blur-md shadow-md fixed top-0 w-full z-50">
+<div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+
+<div class="flex items-center gap-2 cursor-pointer" onclick="location.href='index.html'">
+<i class="fas fa-gamepad text-sky-blue text-3xl"></i>
+<span class="font-script text-3xl font-bold text-deep-blue">RB ESPORTS</span>
+</div>
+
+<div class="space-x-8 hidden md:block">
+<a href="index.html"><i class="fas fa-house mr-1"></i>Home</a>
+<a href="products.html"><i class="fas fa-gamepad mr-1"></i>Modes</a>
+<a href="collection.html" class="text-sky-blue font-bold"><i class="fas fa-trophy mr-1"></i>Tournaments</a>
+<a href="about.html"><i class="fas fa-user mr-1"></i>About</a>
+<a href="contact.html"><i class="fas fa-envelope mr-1"></i>Join</a>
+
+<a href="profile.html">
+<i class="fas fa-user-circle mr-1"></i> Profile
+</a>
+
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-32 pb-14 text-center bg-white">
+<h1 class="font-script text-6xl text-deep-blue mb-3 glow-text">Joined Matches 🎮</h1>
+<p class="text-gray-500">Your joined tournaments appear here</p>
+
+<div class="mt-6 flex justify-center gap-4 flex-wrap">
+<button onclick="location.href='products.html'" class="bg-sky-blue text-white px-6 py-2 rounded-full">🎮 Explore Modes</button>
+<button onclick="clearMatches()" class="bg-deep-blue text-white px-6 py-2 rounded-full">🗑️ Clear All</button>
+</div>
+</section>
+
+<!-- MATCH GRID -->
+<section class="pb-24">
+<div class="max-w-7xl mx-auto px-4">
+
+<div id="emptyText" class="text-center text-gray-400 text-lg mt-14">
+No matches joined yet 😢  
+<br>Go to Modes or Tournaments and join matches.
+</div>
+
+<div id="matchGrid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-14"></div>
+
+</div>
+</section>
+
+<!-- TOP -->
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+class="bg-sky-blue text-white px-4 py-2 rounded-full shadow-lg">↑ Top</button>
+
+<script>
+let matches = JSON.parse(localStorage.getItem("joinedMatches")) || [];
+let grid = document.getElementById("matchGrid");
+let empty = document.getElementById("emptyText");
+
+if(matches.length>0){
+empty.style.display="none";
+grid.classList.remove("hidden");
+
+matches.forEach((m,index)=>{
+let div=document.createElement("div");
+div.className="card bg-white rounded-2xl p-4 shadow-md text-center";
+
+div.innerHTML=`
+<img src="${m.img}" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">${m.name}</h3>
+<p class="text-sky-blue font-bold mb-2">${m.price}</p>
+
+<button class="bg-red-500 text-white px-4 py-1 rounded-full text-sm" onclick="removeOne(${index})">❌ Leave</button>
+`;
+
+grid.appendChild(div);
+});
+}
+
+function clearMatches(){
+if(confirm("Clear all joined matches?")){
+localStorage.removeItem("joinedMatches");
+location.reload();
+}
+}
+
+function removeOne(i){
+matches.splice(i,1);
+localStorage.setItem("joinedMatches",JSON.stringify(matches));
+location.reload();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join | RB ESPORTS</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'baby-blue': '#e0f2fe',
+'sky-blue': '#38bdf8',
+'soft-blue': '#7dd3fc',
+'deep-blue': '#0369a1',
+},
+fontFamily: {
+'script': ['"Dancing Script"', 'cursive'],
+'body': ['"Poppins"', 'sans-serif'],
+}
+}
+}
+}
+</script>
+
+<style>
+body { font-family: 'Poppins', sans-serif; }
+
+.hero-pattern {
+background-color: #f0f9ff;
+background-image: radial-gradient(#bae6fd 0.5px, transparent 0.5px),
+radial-gradient(#bae6fd 0.5px, #f0f9ff 0.5px);
+background-size: 20px 20px;
+background-position: 0 0, 10px 10px;
+}
+
+.glow{animation: glow 3s ease-in-out infinite alternate;}
+@keyframes glow{
+from{ text-shadow:0 0 10px #7dd3fc }
+to{ text-shadow:0 0 30px #38bdf8 }
+}
+
+.glow-btn:active{
+box-shadow:0 0 25px #38bdf8;
+transform:scale(1.05);
+}
+
+.balloon{position: fixed;bottom: -120px;width: 55px;height: 75px;border-radius: 50%;opacity: 0.5;animation: floatUp linear infinite;z-index: 1;}
+.balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:40px;background:rgba(0,0,0,0.2);}
+.yellow{ background:#fde047;} .blue{ background:#93c5fd;} .green{ background:#86efac;}
+.red{ background:#fca5a5;} .purple{ background:#d8b4fe;}
+
+.b1{ left:5%; animation-duration:22s;} .b2{ left:18%; animation-duration:18s;}
+.b3{ left:32%; animation-duration:25s;} .b4{ left:48%; animation-duration:20s;}
+.b5{ left:63%; animation-duration:27s;} .b6{ left:77%; animation-duration:19s;}
+.b7{ left:90%; animation-duration:23s;}
+
+.d1{ animation-delay:2s;} .d2{ animation-delay:7s;} .d3{ animation-delay:12s;}
+.d4{ animation-delay:17s;} .d5{ animation-delay:22s;}
+
+@keyframes floatUp{
+0%{ transform:translateY(0) rotate(0deg); opacity:0;}
+10%{opacity:0.5;}
+100%{ transform:translateY(-130vh) rotate(8deg); opacity:0;}
+}
+</style>
+</head>
+
+<body class="bg-baby-blue text-gray-700">
+
+<!-- BALLOONS -->
+<div class="balloon yellow b1 d1"></div>
+<div class="balloon blue b2 d3"></div>
+<div class="balloon green b3 d2"></div>
+<div class="balloon red b4 d4"></div>
+<div class="balloon purple b5 d1"></div>
+<div class="balloon yellow b6 d5"></div>
+<div class="balloon blue b7 d2"></div>
+
+<!-- NAV -->
+<nav class="bg-white/90 backdrop-blur-md shadow-md fixed w-full z-50 top-0">
+<div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+<div class="flex items-center gap-2 cursor-pointer" onclick="location.href='index.html'">
+<i class="fas fa-gamepad text-sky-blue text-3xl"></i>
+<span class="font-script text-3xl font-bold text-deep-blue">RB ESPORTS</span>
+</div>
+
+<div class="space-x-6 hidden md:block">
+<a href="index.html">
+<i class="fas fa-house mr-1"></i> Home
+</a>
+
+<a href="products.html">
+<i class="fas fa-gamepad mr-1"></i> Modes
+</a>
+
+<a href="collection.html">
+<i class="fas fa-trophy mr-1"></i> Tournaments
+</a>
+
+<a href="about.html">
+<i class="fas fa-user mr-1"></i> About
+</a>
+
+
+
+<a href="contact.html" class="text-sky-blue font-bold">
+<i class="fas fa-envelope mr-1"></i> Join
+</a>
+
+<a href="profile.html">
+<i class="fas fa-user-circle mr-1"></i> Profile
+</a>
+
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-pattern pt-32 pb-16 text-center relative z-10">
+<h1 class="font-script text-6xl text-deep-blue mb-2 glow">Join Tournament 🎮</h1>
+<p class="text-gray-500">Register and enter the battlefield 🔥</p>
+</section>
+
+<!-- PROFILE -->
+<section class="pb-20 relative z-10">
+<div class="max-w-4xl mx-auto px-4">
+
+<div class="bg-white rounded-3xl shadow-xl p-10 text-center">
+
+<img src="images/me.jpeg"
+class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-200 shadow-md mb-4">
+
+<h2 class="text-3xl font-bold text-deep-blue">Rajdeep Bhanja</h2>
+<p class="text-gray-500 mb-4">Tournament Organizer • Gamer</p>
+
+<p class="max-w-2xl mx-auto text-gray-600 mb-6">
+I organize gaming tournaments and create competitive environments for players.
+Join now and prove your skills in the arena!
+</p>
+
+<div class="flex flex-wrap justify-center gap-3 mb-8">
+<span class="px-4 py-1 rounded-full bg-blue-100 text-sky-blue text-sm">ESPORTS</span>
+<span class="px-4 py-1 rounded-full bg-blue-100 text-sky-blue text-sm">TOURNAMENT</span>
+<span class="px-4 py-1 rounded-full bg-blue-100 text-sky-blue text-sm">GAMING</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="pb-24 relative z-10">
+<div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+<h2 class="font-script text-4xl text-deep-blue mb-2 glow">Register Now 🎯</h2>
+
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<input type="text" placeholder="Player Name" class="input">
+<input type="text" placeholder="Game ID / Username" class="input">
+</div>
+
+<input type="text" placeholder="Team Name (optional)" class="input w-full mb-4">
+
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<input type="text" placeholder="Game Name" class="input">
+<input type="text" placeholder="Mobile Number" class="input">
+</div>
+
+<textarea rows="4" placeholder="Any Message / Requirements" class="input w-full mb-6"></textarea>
+
+<button class="bg-sky-blue text-white px-10 py-3 rounded-full shadow-lg hover:scale-105 transition glow-btn">
+🚀 Register
+</button>
+</div>
+</section>
+
+<!-- INFO -->
+<section class="pb-20 text-center">
+<h2 class="font-script text-4xl text-deep-blue mb-6 glow">Why Join? 🏆</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-600 max-w-4xl mx-auto">
+<div>🔥 Competitive Matches</div>
+<div>🏆 Prize Rewards</div>
+<div>🎮 Pro Experience</div>
+<div>👥 Team Battles</div>
+</div>
+</section>
+
+<!-- LOCATION -->
+<section class="pb-24">
+<div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+<h2 class="font-script text-4xl text-deep-blue mb-6 glow">Location 📍</h2>
+<p class="mb-4 text-gray-600">
+Kolkata, India
+</p>
+
+<iframe class="w-full h-72 rounded-2xl shadow"
+src="https://maps.google.com/maps?q=Kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+</div>
+</section>
+
+</body>
+</html>

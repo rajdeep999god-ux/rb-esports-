@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>CS DUO | RB ESPORTS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'baby-blue': '#e0f2fe',
+'sky-blue': '#38bdf8',
+'deep-blue': '#0369a1'
+},
+fontFamily: {
+'script': ['"Dancing Script"', 'cursive'],
+'body': ['"Poppins"', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+body{font-family:'Poppins',sans-serif}
+.glow-text{animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{from{text-shadow:0 0 10px #7dd3fc}to{text-shadow:0 0 25px #38bdf8}}
+.flower-card{transition:.35s ease;}
+.flower-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 25px 45px -10px rgba(56,189,248,.35);}
+.match-text{animation: glowMatch 2s ease-in-out infinite alternate;color:#0369a1;font-weight:600;}
+@keyframes glowMatch{from{text-shadow:0 0 5px #7dd3fc}to{text-shadow:0 0 20px #38bdf8}}
+</style>
+</head>
+
+<body class="bg-baby-blue text-gray-700">
+
+<nav class="bg-white shadow-md fixed w-full top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-20 flex items-center">
+<div class="cursor-pointer" onclick="location.href='../new.html'">
+<span class="font-script text-3xl text-deep-blue">RB ESPORTS</span>
+</div>
+</div>
+</nav>
+
+<section class="pt-32 pb-20 bg-white">
+<div class="max-w-7xl mx-auto px-4">
+
+<h1 class="font-script text-6xl text-center text-deep-blue mb-6 glow-text">
+CS DUO MATCHES
+</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+<div class="flower-card bg-blue-50 p-4 rounded-2xl text-center">
+<img src="../images/cs-duo-one.jpeg" class="rounded-xl h-40 w-full mb-3">
+<h3 class="text-xl match-text">11 AM MATCH</h3>
+</div>
+
+
+
+
+<!-- copy same block for all times -->
+</div>
+</div>
+</section>
+
+<script>
+document.querySelectorAll(".flower-card").forEach(card=>{
+  card.style.cursor="pointer";
+  card.onclick=()=>{
+    const match = card.querySelector("h3").innerText.toLowerCase().replaceAll(" ","-");
+    window.location.href = match + ".html";
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile | RB ESPORTS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'baby-blue': '#e0f2fe',
+'sky-blue': '#38bdf8',
+'deep-blue': '#0369a1'
+},
+fontFamily: {
+'script': ['"Dancing Script"', 'cursive'],
+'body': ['"Poppins"', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+body{font-family:'Poppins',sans-serif}
+.glow{animation:glow 3s infinite alternate}
+@keyframes glow{
+from{text-shadow:0 0 10px #7dd3fc}
+to{text-shadow:0 0 30px #38bdf8}
+}
+.card{transition:.3s}
+.card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 20px 40px rgba(56,189,248,.3)}
+</style>
+</head>
+
+<body class="bg-baby-blue text-gray-700">
+
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md fixed w-full top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+
+<div onclick="location.href='index.html'" class="flex items-center gap-2 cursor-pointer">
+<i class="fas fa-gamepad text-sky-blue text-3xl"></i>
+<span class="font-script text-3xl font-bold text-deep-blue">RB ESPORTS</span>
+</div>
+
+<div class="space-x-6 hidden md:block">
+
+<a href="index.html"><i class="fas fa-house mr-1"></i> Home</a>
+<a href="products.html"><i class="fas fa-gamepad mr-1"></i> Modes</a>
+<a href="collection.html"><i class="fas fa-trophy mr-1"></i> Tournaments</a>
+<a href="about.html"><i class="fas fa-user mr-1"></i> About</a>
+<a href="contact.html"><i class="fas fa-envelope mr-1"></i> Join</a>
+
+<a href="profile.html" class="text-sky-blue font-bold">
+<i class="fas fa-user-circle mr-1"></i> Profile
+</a>
+
+<!-- COIN DISPLAY -->
+<span class="text-sky-blue font-bold ml-4">
+🪙 <span id="coinCount">0</span>
+</span>
+
+</div>
+</div>
+</nav>
+
+<!-- PROFILE SECTION -->
+<section class="pt-28 pb-20">
+<div class="max-w-5xl mx-auto px-4">
+
+<div class="bg-white rounded-3xl p-8 text-center shadow-xl card">
+
+<img src="images/me.jpeg" class="w-28 h-28 mx-auto rounded-full border-4 border-blue-200 mb-4">
+
+<h2 id="name" class="text-3xl font-bold text-deep-blue glow">Player</h2>
+<p id="about" class="text-gray-500 mb-4">Pro Gamer 🎮</p>
+
+<div class="text-xl font-bold text-sky-blue mb-6">
+🪙 Coins: <span id="coins">0</span>
+</div>
+
+<div class="flex justify-center gap-3 flex-wrap">
+<button onclick="editProfile()" class="bg-sky-blue text-white px-5 py-2 rounded-full">Edit</button>
+<button onclick="dailyReward()" class="bg-green-500 text-white px-5 py-2 rounded-full">Daily Reward</button>
+<button onclick="resetData()" class="bg-red-500 text-white px-5 py-2 rounded-full">Reset</button>
+</div>
+
+</div>
+
+<!-- STATS -->
+<div class="grid md:grid-cols-4 gap-6 mt-6 text-center">
+
+<div class="bg-white p-5 rounded-2xl shadow card">
+<h3 id="matches" class="text-xl font-bold">0</h3>
+<p class="text-gray-500 text-sm">Matches</p>
+</div>
+
+<div class="bg-white p-5 rounded-2xl shadow card">
+<h3 id="wins" class="text-xl font-bold">0</h3>
+<p class="text-gray-500 text-sm">Wins</p>
+</div>
+
+<div class="bg-white p-5 rounded-2xl shadow card">
+<h3 id="spent" class="text-xl font-bold">0</h3>
+<p class="text-gray-500 text-sm">Coins Used</p>
+</div>
+
+<div class="bg-white p-5 rounded-2xl shadow card">
+<h3 id="level" class="text-xl font-bold">1</h3>
+<p class="text-gray-500 text-sm">Level</p>
+</div>
+
+</div>
+
+<!-- ACTIONS -->
+<div class="bg-white rounded-3xl p-8 shadow-xl mt-6 text-center card">
+
+<h2 class="text-2xl font-bold text-deep-blue mb-4">⚡ Actions</h2>
+
+<div class="flex flex-wrap justify-center gap-4">
+
+<button onclick="addCoins(50)" class="bg-green-500 text-white px-6 py-2 rounded-full">+50 Coins</button>
+
+<button onclick="addCoins(100)" class="bg-green-600 text-white px-6 py-2 rounded-full">+100 Coins</button>
+
+<button onclick="spendCoins(50)" class="bg-sky-blue text-white px-6 py-2 rounded-full">Use 50 Coins</button>
+
+<button onclick="withdrawCoins()" class="bg-red-500 text-white px-6 py-2 rounded-full">Withdraw</button>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<script>
+
+// INIT
+if(!localStorage.getItem("coins")){
+localStorage.setItem("coins", 500);
+}
+
+let coins = parseInt(localStorage.getItem("coins"));
+let name = localStorage.getItem("name") || "Player";
+let about = localStorage.getItem("about") || "Pro Gamer 🎮";
+let matches = JSON.parse(localStorage.getItem("joinedMatches")) || [];
+
+updateUI();
+
+function updateUI(){
+document.getElementById("coins").innerText = coins;
+document.getElementById("coinCount").innerText = coins;
+document.getElementById("name").innerText = name;
+document.getElementById("about").innerText = about;
+document.getElementById("matches").innerText = matches.length;
+document.getElementById("wins").innerText = Math.floor(matches.length/2);
+document.getElementById("spent").innerText = matches.length * 50;
+document.getElementById("level").innerText = Math.floor(coins/200)+1;
+}
+
+// EDIT
+function editProfile(){
+let n = prompt("Enter Name:");
+let a = prompt("About:");
+if(n) localStorage.setItem("name", n);
+if(a) localStorage.setItem("about", a);
+location.reload();
+}
+
+// COINS
+function addCoins(amount){
+coins += amount;
+localStorage.setItem("coins", coins);
+updateUI();
+}
+
+function spendCoins(amount){
+if(coins >= amount){
+coins -= amount;
+localStorage.setItem("coins", coins);
+updateUI();
+}else{
+alert("Not enough coins ❌");
+}
+}
+
+function withdrawCoins(){
+alert("Withdraw system coming soon 💸");
+}
+
+// REWARD
+function dailyReward(){
+coins += 20;
+localStorage.setItem("coins", coins);
+updateUI();
+}
+
+// RESET
+function resetData(){
+if(confirm("Reset all data?")){
+localStorage.clear();
+location.reload();
+}
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>Game Modes | RB ESPORTS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'baby-blue': '#e0f2fe',
+'sky-blue': '#38bdf8',
+'deep-blue': '#0369a1'
+},
+fontFamily: {
+'script': ['"Dancing Script"', 'cursive'],
+'body': ['"Poppins"', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+body{font-family:'Poppins',sans-serif}
+.glow-text{animation:glow 3s ease-in-out infinite alternate}
+@keyframes glow{from{text-shadow:0 0 10px #7dd3fc}to{text-shadow:0 0 25px #38bdf8}}
+.flower-card{position:relative;overflow:hidden;transition:.35s ease;}
+.flower-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 25px 45px -10px rgba(56,189,248,.35);}
+.badge{position:absolute;top:12px;left:12px;background:#38bdf8;color:white;font-size:11px;padding:4px 10px;border-radius:999px;font-weight:600;z-index:5;}
+#topBtn{position:fixed;bottom:20px;right:20px;z-index:50}
+</style>
+</head>
+
+<body class="bg-baby-blue text-gray-700">
+
+<nav class="bg-white shadow-md fixed w-full top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+<div class="flex items-center gap-2 cursor-pointer" onclick="location.href='index.html'">
+<i class="fas fa-gamepad text-sky-blue text-3xl"></i>
+<span class="font-script text-3xl font-bold text-deep-blue">RB ESPORTS</span>
+</div>
+<div class="space-x-6 hidden md:block">
+<a href="index.html"><i class="fas fa-house mr-1"></i>Home</a>
+<a href="products.html" class="text-sky-blue font-bold"><i class="fas fa-gamepad mr-1"></i>Modes</a>
+<a href="collection.html"><i class="fas fa-trophy mr-1"></i>Tournaments</a>
+<a href="about.html"><i class="fas fa-user mr-1"></i>About</a>
+<a href="contact.html"><i class="fas fa-envelope mr-1"></i>Join</a>
+<a href="profile.html"><i class="fas fa-user-circle mr-1"></i> Profile</a>
+</div>
+</div>
+</nav>
+
+<section class="pt-32 pb-20 bg-white">
+<div class="max-w-7xl mx-auto px-4">
+
+<h1 class="font-script text-6xl text-center text-deep-blue mb-4 glow-text">Game Modes</h1>
+<p class="text-center text-gray-500 mb-6">Choose your battle mode 🎮🔥</p>
+
+<div class="flex justify-center mb-4">
+<input id="searchBox" type="text" placeholder="Search game modes..."
+class="w-full max-w-xl px-6 py-3 rounded-full border-2 border-blue-200 focus:border-sky-blue outline-none shadow-md">
+</div>
+
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<select id="modeFilter"
+class="px-4 py-2 rounded-full border-2 border-blue-200 shadow focus:border-sky-blue outline-none">
+<option>ALL</option>
+<option>BR MODE</option>
+<option>CS MODE</option>
+<option>LONE WOLF</option>
+<option>SNIPER MODE</option>
+<option>HEAD MODE</option>
+</select>
+
+<p class="text-sky-blue font-semibold">🔥 Daily tournaments available</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8" id="productGrid">
+
+<!-- (ALL CARDS SAME — unchanged) -->
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/cs-squad.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">CS SQUAD</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/br-squad.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">BR SQUAD</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/br-duo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">BR DUO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/cs-duo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">CS DUO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/cs-solo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">CS SOLO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/br-solo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">BR SOLO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/lone-wolf-duo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">LONE WOLF DUO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/lone-wolf-solo.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">LONE WOLF SOLO</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/sniper.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">SNIPER</h3>
+</div>
+
+<div class="flower-card bg-blue-50 rounded-2xl p-4 shadow-md text-center">
+<img src="images/head.jpeg" class="rounded-xl h-48 w-full object-cover mb-3">
+<h3 class="font-semibold text-xl">HEAD</h3>
+</div>
+
+</div>
+</div>
+</section>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+class="bg-deep-blue text-white px-4 py-2 rounded-full shadow-lg">↑ Top</button>
+
+<script>
+// BADGE (same)
+document.querySelectorAll('.flower-card').forEach((card,i)=>{
+let badge=document.createElement("span");
+badge.className="badge";
+badge.innerText = i%3==0?"NEW":i%4==0?"BEST":"HOT";
+card.prepend(badge);
+});
+
+// SEARCH (same)
+document.getElementById("searchBox").addEventListener("keyup",function(){
+let value=this.value.toLowerCase();
+document.querySelectorAll(".flower-card").forEach(card=>{
+let name=card.querySelector("h3").innerText.toLowerCase();
+card.style.display = name.includes(value) ? "block" : "none";
+});
+});
+
+// FILTER (same)
+const filter = document.getElementById("modeFilter");
+
+filter.addEventListener("change", () => {
+  const value = filter.value;
+
+  document.querySelectorAll(".flower-card").forEach(card => {
+    const text = card.querySelector("h3").innerText.toUpperCase();
+
+    if (value === "ALL") card.style.display="block";
+    else if (value === "BR MODE" && text.includes("BR")) card.style.display="block";
+    else if (value === "CS MODE" && text.includes("CS")) card.style.display="block";
+    else if (value === "LONE WOLF" && text.includes("LONE WOLF")) card.style.display="block";
+    else if (value === "SNIPER MODE" && text.includes("SNIPER")) card.style.display="block";
+    else if (value === "HEAD MODE" && text.includes("HEAD")) card.style.display="block";
+    else card.style.display="none";
+  });
+});
+
+// 🔥 ONLY CHANGE (LINK FIXED)
+document.querySelectorAll(".flower-card").forEach(card=>{
+  card.style.cursor="pointer";
+  card.onclick=()=>{
+    const mode = card.querySelector("h3").innerText.toLowerCase().replaceAll(" ","-");
+    window.location.href = "modes/" + mode + ".html";
+  }
+});
+</script>
+
+</body>
+</html>
